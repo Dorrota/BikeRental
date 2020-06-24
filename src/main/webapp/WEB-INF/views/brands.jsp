@@ -22,6 +22,6 @@
     </c:forEach>
     </tbody>
 </table>
-
+<a href = "<c:url value = "/brand/add"/>">Dodaj nową markę i model</a>
 </body>
 </html>

@@ -36,5 +36,7 @@
     </tbody>
 </table>
 
+<p><a href = "<c:url value = "/lender/add"/>">Dodaj nowego użytkownika</a></p>
+
 </body>
 </html>

@@ -22,6 +22,6 @@
     </c:forEach>
     </tbody>
 </table>
-
+<a href = "<c:url value = "/type/add"/>">Dodaj nowy typ</a>
 </body>
 </html>

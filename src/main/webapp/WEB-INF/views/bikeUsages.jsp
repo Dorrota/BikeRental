@@ -34,6 +34,6 @@
     </c:forEach>
     </tbody>
 </table>
-
+<a href = "<c:url value = "/usage/add"/>">Dodaj</a>
 </body>
 </html>

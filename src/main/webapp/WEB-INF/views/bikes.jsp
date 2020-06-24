@@ -10,6 +10,7 @@
 <table border="2" bgcolor="#dc143c">
     <tbody>
     <tr>
+        <td>Rower</td>
         <td>Marka</td>
         <td>Model</td>
         <td>Typ</td>
@@ -19,12 +20,14 @@
     </tr>
     <c:forEach items="${bikes}" var="bike">
         <tr>
+            <td><c:out value="${bike.bikeName}"/></td>
             <td><c:out value="${bike.brand.name}"/></td>
             <td><c:out value="${bike.brand.model}"/></td>
             <td><c:out value="${bike.type.typeName}"/></td>
             <td><c:out value="${bike.type.fullSuspension}"/></td>
             <td><c:out value="${bike.color}"/></td>
             <td><c:out value="${bike.size}"/></td>
+            <td><a href = "<c:url value = "/bike/delete/${bike.id}"/>">Usuń</a></td>
         </tr>
     </c:forEach>
     </tbody>

@@ -18,7 +18,7 @@ public class BikeServiceImpl implements BikeService {
 
     @Override
     public List<Bike> findAll() {
-        return bikeRepository.findAll();
+        return bikeRepository.findAllByOrderByBrandName();
     }
 
     @Override
@@ -27,8 +27,8 @@ public class BikeServiceImpl implements BikeService {
     }
 
     @Override
-    public List<Bike> findByBrandId(Long id) {
-        return null;
+    public List<Bike> findByBrand(String name) {
+        return bikeRepository.findAllByBrandName(name);
     }
 
     @Override

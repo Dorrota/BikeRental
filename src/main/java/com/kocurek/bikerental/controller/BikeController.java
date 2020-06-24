@@ -10,12 +10,10 @@ import com.kocurek.bikerental.service.BrandService;
 import com.kocurek.bikerental.service.TypeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/bike")
@@ -38,6 +36,12 @@ public class BikeController {
         return "bikes";
     }
 
+//    @GetMapping("/brand")
+//    public String brandList(Model model){
+//        List<Bike> bikeList = bikeService.findByBrand()
+//        return null;
+//    }
+
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("bike", new Bike());
@@ -47,6 +51,19 @@ public class BikeController {
     @PostMapping("/add")
     public String addBike(@ModelAttribute Bike bike){
         bikeService.addBike(bike);
+        return "redirect:/bike/all";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBike(@PathVariable Long id, Model model){
+        Optional<Bike> opBike = bikeService.findById(id);
+        Bike bike = opBike.orElse(new Bike());
+        model.addAttribute("bike", bike);
+        return "bikeDelete";
+    }
+    @GetMapping("/delete/yes/{id}")
+    public String deleteBike(@PathVariable Long id){
+        bikeService.deleteById(id);
         return "redirect:/bike/all";
     }
 

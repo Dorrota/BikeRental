@@ -9,7 +9,7 @@ public interface BikeService {
 
     List<Bike> findAll();
     Optional<Bike> findById(Long id);
-    List<Bike> findByBrandId(Long id);
+    List<Bike> findByBrand(String name);
     List<Bike> findByTypeId(Long id);
     Bike addBike(Bike bike);
     void deleteById(Long id);
