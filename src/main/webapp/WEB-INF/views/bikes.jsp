@@ -29,5 +29,8 @@
     </c:forEach>
     </tbody>
 </table>
+<br>
+<p>    <a href = "<c:url value = "/bike/add"/>">Dodaj nowy rower</a>
+</p>
 </body>
 </html>

@@ -12,7 +12,7 @@
     Typ:
     <form:input path="typeName"/><br>
     Full:
-    <form:input path="fullSuspension"/><br>
+    <form:radiobutton path="fullSuspension" value="True"/><br>
 
     <input type="submit" name="Zapisz">
 

@@ -1,5 +1,6 @@
 package com.kocurek.bikerental.controller;
 
+import com.kocurek.bikerental.domain.Bike;
 import com.kocurek.bikerental.domain.BikeUsage;
 import com.kocurek.bikerental.domain.Lender;
 import com.kocurek.bikerental.domain.UsageStatus;
@@ -11,8 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,6 +42,18 @@ public class BikeUsageController {
         return "bikeUsages";
     }
 
+    @GetMapping("/add")
+    public String getForm(Model model){
+        model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
+        model.addAttribute("usage", new BikeUsage());
+        return "bikeUsageForm";
+    }
+
+    @PostMapping("/add")
+    public String addBikeUsage(@ModelAttribute BikeUsage bikeUsage){
+        bikeUsageService.addUsage(bikeUsage);
+        return "redirect:/usage/all";
+    }
 
     @ModelAttribute("lenders")
     public List<Lender> lenderList(){
@@ -47,6 +63,9 @@ public class BikeUsageController {
     public List<UsageStatus> statusList(){
         return statusService.findAll();
     }
-    //@ModelAttribute("bikes")
+    @ModelAttribute("bikes")
+    public List<Bike> bikeList(){
+        return bikeService.findAll();
+    }
 
 }

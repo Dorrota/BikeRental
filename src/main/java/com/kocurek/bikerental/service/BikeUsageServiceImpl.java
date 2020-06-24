@@ -4,6 +4,7 @@ import com.kocurek.bikerental.domain.BikeUsage;
 import com.kocurek.bikerental.repository.BikeUsageRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,7 +18,7 @@ public class BikeUsageServiceImpl implements BikeUsageService {
 
     @Override
     public List<BikeUsage> findAll() {
-        return null;
+        return usageRepository.findAll();
     }
 
     @Override
@@ -39,4 +40,10 @@ public class BikeUsageServiceImpl implements BikeUsageService {
     public List<BikeUsage> findAllByLenderId(Long id) {
         return usageRepository.findAllByLenderId(id);
     }
+
+//    public List<BikeUsage> findBetween(Long id){
+//        LocalDateTime now = LocalDateTime.now();
+//        usageRepository.findAllById();
+//        return null;
+//    }
 }
