@@ -10,13 +10,13 @@ import com.kocurek.bikerental.service.LenderService;
 import com.kocurek.bikerental.service.UsageStatusService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -44,7 +44,7 @@ public class BikeUsageController {
 
     @GetMapping("/add")
     public String getForm(Model model){
-        model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
+        //model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
         model.addAttribute("usage", new BikeUsage());
         return "bikeUsageForm";
     }
@@ -53,6 +53,18 @@ public class BikeUsageController {
     public String addBikeUsage(@ModelAttribute BikeUsage bikeUsage){
         bikeUsageService.addUsage(bikeUsage);
         return "redirect:/usage/all";
+    }
+
+    @GetMapping("/bike/{id}")
+    public String isBikeInUse(@PathVariable Long id, Model model){
+        LocalDateTime now = LocalDateTime.now();
+        List<BikeUsage> list=bikeUsageService.findAllByBikeAndTime(id, now, now);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//        for (BikeUsage b: list) {
+//            b.getStartTime().format(dtf);
+//        }
+        model.addAttribute("usages", list);
+        return "usages";
     }
 
     @ModelAttribute("lenders")

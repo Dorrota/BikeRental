@@ -9,8 +9,10 @@
 <body>
 <h3>Dodaj nowy rower</h3>
 <form:form method="post" modelAttribute="bike">
+    nazwa: <form:input path="bikeName"/><br>
     model: <form:select path="brand" itemLabel="model" itemValue="id" items="${brands}" /><br>
     typ: <form:select path="type" itemLabel="typeName" itemValue="id" items="${types}" /><br>
+
     rozmiar: <form:input path="size"/><br>
     kolor: <form:input path="color"/><br>
 

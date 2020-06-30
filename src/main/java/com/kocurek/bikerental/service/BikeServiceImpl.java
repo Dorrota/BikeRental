@@ -18,6 +18,7 @@ public class BikeServiceImpl implements BikeService {
 
     @Override
     public List<Bike> findAll() {
+
         return bikeRepository.findAllByOrderByBrandName();
     }
 

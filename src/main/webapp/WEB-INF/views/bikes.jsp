@@ -28,6 +28,7 @@
             <td><c:out value="${bike.color}"/></td>
             <td><c:out value="${bike.size}"/></td>
             <td><a href = "<c:url value = "/bike/delete/${bike.id}"/>">Usuń</a></td>
+            <td><a href = "<c:url value = "/usage/bike/${bike.id}"/>">Zobacz wypożyczenia</a><</td>
         </tr>
     </c:forEach>
     </tbody>

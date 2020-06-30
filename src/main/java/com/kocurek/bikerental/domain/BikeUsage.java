@@ -23,8 +23,8 @@ public class BikeUsage {
 
     @ManyToOne
     private Bike bike;
-    @OneToOne
+    @ManyToOne
     private Lender lender;
-    @OneToOne
+    @ManyToOne
     private UsageStatus usageStatus;
 }

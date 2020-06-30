@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +21,8 @@ public class Bike {
     private Brand brand;
     @ManyToOne
     private Type type;
+    @OneToMany(mappedBy = "bike")
+    private List<BikeUsage> bikeUsage = new ArrayList<>();
     private boolean isElectric;
     private String color;
     private String size;
