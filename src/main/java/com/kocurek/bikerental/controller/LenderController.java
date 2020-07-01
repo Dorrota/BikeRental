@@ -4,11 +4,13 @@ import com.kocurek.bikerental.domain.Lender;
 import com.kocurek.bikerental.service.LenderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,7 +37,10 @@ public class LenderController {
     }
 
     @PostMapping("/add")
-    public String addLender(@ModelAttribute Lender lender){
+    public String addLender(@Valid Lender lender, BindingResult result){
+        if (result.hasErrors()){
+            return "lenderForm";
+        }
         lenderService.addLender(lender);
         return "redirect:/lender/all";
     }

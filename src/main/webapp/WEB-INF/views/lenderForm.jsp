@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Lender form</title>
@@ -16,17 +18,21 @@
 <h3>Zapisz się do wypożyczalni!</h3>
 <form:form method="post" modelAttribute="lender">
     Imię:
-    <form:input path="firstName"/><br>
+    <form:input path="firstName"/>
+    <form:errors path="firstName"/><br>
     Nazwisko:
-    <form:input path="lastName"/><br>
+    <form:input path="lastName"/>
+    <form:errors path="lastName"/><br>
     Email:
-    <form:input path="email"/><br>
+    <form:input path="email"/>
+    <form:errors path="email"/><br>
     PESEL:
-    <form:input path="pesel"/><br>
+    <form:input path="pesel"/>
+    <form:errors path="pesel"/><br>
 
     <input type="submit" name="Zapisz">
 
 </form:form>
-
+<p><a href = "<c:url value = "/lender/all"/>">Wróć do listy użytkowników</a></p>
 </body>
 </html>

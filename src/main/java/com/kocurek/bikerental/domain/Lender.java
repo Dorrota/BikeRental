@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -19,9 +21,11 @@ public class Lender {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String firstName;
+    @NotNull(message = "Nazwisko jest wymagane.")
+    @NotBlank(message = "Nazwisko jest wymagane.")
     private String lastName;
-    @PESEL
+    @PESEL(message = "Pesel nieprawidłowy.")
     private String pesel;
-    @Email
+    @Email(message = "Adres email nieprawidłaowy.")
     private String email;
 }

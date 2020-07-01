@@ -10,8 +10,10 @@ import com.kocurek.bikerental.service.BrandService;
 import com.kocurek.bikerental.service.TypeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,7 +51,10 @@ public class BikeController {
     }
 
     @PostMapping("/add")
-    public String addBike(@ModelAttribute Bike bike){
+    public String addBike(@Valid Bike bike, BindingResult result){
+        if (result.hasErrors()){
+            return "bikeForm";
+        }
         bikeService.addBike(bike);
         return "redirect:/bike/all";
     }

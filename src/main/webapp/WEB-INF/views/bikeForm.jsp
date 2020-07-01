@@ -1,7 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form"
-           uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Bike form</title>
@@ -19,6 +20,8 @@
     <input type="submit">
 
 </form:form>
+
+<p><a href = "<c:url value = "/bike/all"/>">Wróć do listy rowerów</a></p>
 
 </body>
 </html>
