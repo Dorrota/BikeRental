@@ -47,9 +47,17 @@ public class BikeUsageServiceImpl implements BikeUsageService {
     }
 
     @Override
-    public List<BikeUsage> findFutureUsages(Long id, LocalDateTime now){
-        now = LocalDateTime.now();
-        return usageRepository.findAllByBike_IdAndStartTimeAfter(id, now);
+    public List<BikeUsage> findFutureUsages(Long id){
+        LocalDateTime now = LocalDateTime.now();
+        List<BikeUsage> list = usageRepository.findAllByBike_IdAndStartTimeAfter(id, now);
+        return list;
+    }
+
+    @Override
+    public List<BikeUsage> findAllCurrentUsages(){
+        LocalDateTime now = LocalDateTime.now();
+        List<BikeUsage> list = usageRepository.findAllByStartTimeBeforeAndEndTimeAfter(now, now);
+        return list;
     }
 
 }

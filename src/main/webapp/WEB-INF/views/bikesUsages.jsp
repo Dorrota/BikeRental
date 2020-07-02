@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -6,46 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Title</title>
+    <title>Bikes current use</title>
 </head>
 <body>
 <div class="container">
-    <h2>Rowery</h2>
+    <h3 class="title">Co robią rowery?</h3>
     <table class="table table-bordered">
         <thead>
-        <tr bgcolor="#ffd700">
+        <tr bgcolor="#dc143c">
             <th scope="col">Rower</th>
-            <th scope="col">Marka</th>
-            <th scope="col">Model</th>
-            <th scope="col">Typ</th>
-            <th scope="col">Full</th>
-            <th scope="col">Kolor</th>
-            <th scope="col">Rozmiar</th>
-            <th scope="col">Usuń</th>
-            <th scope="col">Wypożyczenia</th>
+            <th scope="col">Status</th>
+            <th scope="col">Początek</th>
+            <th scope="col">Koniec</th>
+            <th scope="col">Kto</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${bikes}" var="bike">
+        <c:forEach items="${usages}" var="usage">
             <tr>
-                <td><c:out value="${bike.bikeName}"/></td>
-                <td><c:out value="${bike.brand.name}"/></td>
-                <td><c:out value="${bike.brand.model}"/></td>
-                <td><c:out value="${bike.type.typeName}"/></td>
-                <td><c:out value="${bike.type.fullSuspension}"/></td>
-                <td><c:out value="${bike.color}"/></td>
-                <td><c:out value="${bike.size}"/></td>
-                <td><a href="<c:url value = "/bike/delete/${bike.id}" />">Usuń</a></td>
-                <td><a href="<c:url value = "/usage/bike/${bike.id}"/>">Zobacz wypożyczenia</a></td>
+                <td><c:out value="${usage.bike.brand.model}"/></td>
+                <td><c:out value="${usage.usageStatus.name}"/></td>
+                <td><c:out value="${usage.startTime}"/></td>
+                <td><c:out value="${usage.endTime}"/></td>
+                <td><c:out value="${usage.lender.lastName}"/></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-    <br>
-    <div class="hyperlink"><a href="<c:url value = "/bike/add"/>">Dodaj nowy rower</a>
-    </div>
-    <div class="hyperlink"><a href="<c:url value = "/"/>">Powrót</a></div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

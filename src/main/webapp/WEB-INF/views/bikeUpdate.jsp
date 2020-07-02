@@ -1,41 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Title</title>
+    <title>Bike update</title>
 </head>
 <body>
 <div class="container">
-    <h3 class="title">Co robi rower?</h3>
-    <table class="table table-bordered">
-        <thead>
-        <tr bgcolor="#dc143c">
-            <th scope="col">Rower</th>
-            <th scope="col">Status</th>
-            <th scope="col">Początek</th>
-            <th scope="col">Koniec</th>
-            <th scope="col">Kto</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${usages}" var="usage">
-            <tr>
-                <td><c:out value="${usage.bike.brand.model}"/></td>
-                <td><c:out value="${usage.usageStatus.name}"/></td>
-                <td><c:out value="${usage.startTime}"/></td>
-                <td><c:out value="${usage.endTime}"/></td>
-                <td><c:out value="${usage.lender.lastName}"/></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    
 </div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

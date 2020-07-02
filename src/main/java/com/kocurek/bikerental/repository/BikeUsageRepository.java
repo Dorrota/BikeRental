@@ -18,5 +18,6 @@ public interface BikeUsageRepository extends JpaRepository<BikeUsage, Long> {
     List<BikeUsage> findAllByBike_IdAndStartTimeAfter(Long is, LocalDateTime date);
     @Query("select u from BikeUsage u where u.bike.id = ?1 and u.startTime < ?2 and u.endTime > ?3")
     List<BikeUsage> findIfBikeNowInUse(Long id, LocalDateTime startDate, LocalDateTime endDate);
+    List<BikeUsage> findAllByStartTimeBeforeAndEndTimeAfter(LocalDateTime startDate, LocalDateTime endDate);
 
 }

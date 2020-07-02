@@ -13,5 +13,6 @@ public interface BikeUsageService {
     BikeUsage addUsage(BikeUsage usage);
     List<BikeUsage> findAllByLenderId(Long id);
     List<BikeUsage> findAllByBikeAndTime(Long id, LocalDateTime currentDate1, LocalDateTime currentDate2);
-    List<BikeUsage> findFutureUsages(Long id, LocalDateTime now);
+    List<BikeUsage> findFutureUsages(Long id);
+    List<BikeUsage> findAllCurrentUsages();
 }

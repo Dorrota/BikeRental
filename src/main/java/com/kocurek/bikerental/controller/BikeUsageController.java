@@ -8,6 +8,7 @@ import com.kocurek.bikerental.service.BikeService;
 import com.kocurek.bikerental.service.BikeUsageService;
 import com.kocurek.bikerental.service.LenderService;
 import com.kocurek.bikerental.service.UsageStatusService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/usage")
+@Slf4j
 public class BikeUsageController {
 
     private final BikeUsageService bikeUsageService;
@@ -56,6 +58,13 @@ public class BikeUsageController {
         List<BikeUsage> list=bikeUsageService.findAllByBikeAndTime(id, now, now);
         model.addAttribute("usages", list);
         return "usages";
+    }
+    @GetMapping("/bikes")
+    public String allBikesInUse(Model model){
+        List<BikeUsage> list = bikeUsageService.findAllCurrentUsages();
+        //log.info();
+        model.addAttribute("usages", list);
+        return "bikesUsages";
     }
 
     @ModelAttribute("lenders")

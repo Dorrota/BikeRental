@@ -9,10 +9,12 @@
     <title>Delete bike</title>
 </head>
 <body>
-<h3>Czy na pewno usunąć ten rower?</h3>
-<c:out value="${bike.brand.model}"/>
-<a href="<c:url value = "/bike/all"/>">Nie</a>
-<a href="<c:url value = "/bike/delete/yes/${bike.id}"/>">Tak</a>
+<div class="container">
+    <h3>Czy na pewno usunąć ten rower?</h3>
+    <c:out value="${bike.brand.model}"/>
+    <a href="<c:url value = "/bike/all"/>">Nie</a>
+    <a href="<c:url value = "/bike/delete/yes/${bike.id}"/>">Tak</a>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

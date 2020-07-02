@@ -16,11 +16,11 @@
 <form:form method="post" modelAttribute="bike">
     <div class="form-group">
         nazwa: <form:input path="bikeName"/>
-        <form:errors path="bikeName"/>
+        <div class="alert"><form:errors path="bikeName"/></div>
     </div>
     <div class="form-group">
         model: <form:select path="brand" itemLabel="model" itemValue="id" items="${brands}"/>
-        <form:errors path="brand"/>
+        <div class="alert"><form:errors path="brand"/></div>
     </div>
     <div class="form-group">
         typ: <form:select path="type" itemLabel="typeName" itemValue="id" items="${types}"/>
