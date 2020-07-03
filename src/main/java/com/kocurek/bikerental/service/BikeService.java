@@ -8,9 +8,10 @@ import java.util.Optional;
 public interface BikeService {
 
     List<Bike> findAll();
-    Optional<Bike> findById(Long id);
+    Bike findById(Long id);
     List<Bike> findByBrand(String name);
     List<Bike> findByTypeId(Long id);
     Bike addBike(Bike bike);
     void deleteById(Long id);
+    Bike updateBike(String name, Long id);
 }

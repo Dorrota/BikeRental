@@ -1,5 +1,7 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,7 +12,18 @@
 </head>
 <body>
 <div class="container">
-    
+
+    <form:form method="post" modelAttribute="bike">
+        <div>Rower <c:out value="${bike.bikeName}"/></div>
+        <div><c:out value="${bike.brand.name}"/></div>
+        <div><c:out value="${bike.brand.model}"/></div>
+        <div>Zmień nazwę na:</div>
+        <div class="form-group">
+        <form:input path="bikeName"/>
+        <form:errors path="bikeName"/>
+        </div>
+        <input class="btn btn-primary" type="submit" name="Zmień">
+    </form:form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

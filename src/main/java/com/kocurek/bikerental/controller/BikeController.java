@@ -61,8 +61,7 @@ public class BikeController {
 
     @GetMapping("/delete/{id}")
     public String deleteBike(@PathVariable Long id, Model model){
-        Optional<Bike> opBike = bikeService.findById(id);
-        Bike bike = opBike.orElse(new Bike());
+        Bike bike = bikeService.findById(id);
         model.addAttribute("bike", bike);
         return "bikeDelete";
     }
@@ -70,6 +69,13 @@ public class BikeController {
     public String deleteBike(@PathVariable Long id){
         bikeService.deleteById(id);
         return "redirect:/bike/all";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String updateBikeWithName(@PathVariable Long id, Model model){
+        Bike bike = bikeService.findById(id);
+        model.addAttribute("bike", bike);
+        return "bikeUpdate";
     }
 
     @ModelAttribute("types")

@@ -24,7 +24,7 @@ public class Bike {
     private Brand brand;
     @ManyToOne
     private Type type;
-    @OneToMany(mappedBy = "bike")
+    @OneToMany(mappedBy = "bike", cascade = CascadeType.ALL)
     private List<BikeUsage> bikeUsage = new ArrayList<>();
     private boolean isElectric;
     private String color;

@@ -23,8 +23,9 @@ public class BikeServiceImpl implements BikeService {
     }
 
     @Override
-    public Optional<Bike> findById(Long id) {
-        return bikeRepository.findById(id);
+    public Bike findById(Long id) {
+        Bike bike = bikeRepository.findById(id).orElse(new Bike());
+        return bike;
     }
 
     @Override
@@ -45,5 +46,11 @@ public class BikeServiceImpl implements BikeService {
     @Override
     public void deleteById(Long id) {
         bikeRepository.deleteById(id);
+    }
+
+    @Override
+    public Bike updateBike(String name, Long id){
+        bikeRepository.setBikeNameById(name, id);
+        return bikeRepository.getOne(id);
     }
 }
