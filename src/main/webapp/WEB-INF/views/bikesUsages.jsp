@@ -1,6 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -27,13 +28,16 @@
             <tr>
                 <td><c:out value="${usage.bike.brand.model}"/></td>
                 <td><c:out value="${usage.usageStatus.name}"/></td>
-                <td><c:out value="${usage.startTime}"/></td>
-                <td><c:out value="${usage.endTime}"/></td>
+                <td><fmt:parseDate value="${ usage.startTime }" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+                    <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${ parsedDateTime }" /></td>
+                <td><fmt:parseDate value="${ usage.endTime }" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+                    <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${ parsedDateTime }" /></td>
                 <td><c:out value="${usage.lender.lastName}"/></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 
 

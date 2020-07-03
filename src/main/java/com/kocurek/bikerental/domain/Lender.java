@@ -26,6 +26,6 @@ public class Lender {
     private String lastName;
     @PESEL(message = "Pesel nieprawidłowy.")
     private String pesel;
-    @Email(message = "Adres email nieprawidłaowy.")
+    @Email(message = "Adres email nieprawidłowy.")
     private String email;
 }

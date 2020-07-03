@@ -12,10 +12,11 @@
     <title>Bike usages</title>
 </head>
 <body>
+<div class="container">
 <h2>Wypożyczenia, rezerwacje i naprawy</h2>
-<table class="table table-bordered" bgcolor="#dc143c">
+<table class="table table-bordered">
     <thead>
-    <tr>
+    <tr bgcolor="#dc143c">
         <th scope="col">Użytkownik</th>
         <th scope="col">Rower</th>
         <th scope="col">Model</th>
@@ -35,15 +36,13 @@
             <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${ parsedDateTime }" /></td>
             <td><fmt:parseDate value="${ usage.endTime }" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
                 <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${ parsedDateTime }" /></td>
-
-        <%--            <td><c:out value="${bike.color}"/></td>--%>
-<%--            <td><c:out value="${bike.size}"/></td>--%>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<br>
-<a href = "<c:url value = "/usage/add"/>">Dodaj</a>
+    <div><a href = "<c:url value = "/usage/add"/>">Dodaj</a></div>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

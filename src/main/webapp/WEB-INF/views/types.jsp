@@ -27,7 +27,8 @@
     </c:forEach>
     </tbody>
 </table>
-<a href = "<c:url value = "/type/add"/>">Dodaj nowy typ</a>
+    <div><a href = "<c:url value = "/type/add"/>">Dodaj nowy typ</a></div>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

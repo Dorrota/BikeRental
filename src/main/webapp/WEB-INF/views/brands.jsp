@@ -12,9 +12,9 @@
 <body>
 <div class="container">
     <h2>Marki rowerów</h2>
-    <table class="table table-bordered" bgcolor="#228b22">
+    <table class="table table-bordered">
         <thead>
-        <tr>
+        <tr bgcolor="#228b22">
             <th scope="col">Marka</th>
             <th scope="col">Model</th>
         </tr>
@@ -29,7 +29,9 @@
         </tbody>
     </table>
     <br>
-    <a href="<c:url value = "/brand/add"/>">Dodaj nową markę i model</a>
+    <div class="hyperlink"><a href="<c:url value = "/brand/add"/>">Dodaj nową markę i model</a></div>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

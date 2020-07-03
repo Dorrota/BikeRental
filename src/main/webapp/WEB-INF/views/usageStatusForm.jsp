@@ -13,10 +13,11 @@
 <div class="container">
 <h3>Dodaj nowy status użytkowania roweru</h3>
 <form:form method="post" modelAttribute="status">
+    <div class="form-group">
     Typ:
-    <form:input path="name"/><br>
+        <form:input path="name"/></div>>
 
-    <input type="submit" name="Zapisz">
+    <input class="btn btn-primary" type="submit" value="Zapisz">
 
 </form:form>
 </div>

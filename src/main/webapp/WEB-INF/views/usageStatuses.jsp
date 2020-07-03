@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -11,19 +10,20 @@
 </head>
 <body>
 <div class="container">
-<h2>Typy</h2>
-    <table class="table table-bordered" bgcolor="#9370db">
-    <tbody>
-    <tr>
-        <td>Status roweru</td>
-    </tr>
-    <c:forEach items="${statuses}" var="status">
-        <tr>
-            <td><c:out value="${status.name}"/></td>
+    <h2>Typy</h2>
+    <table class="table table-bordered">
+        <tbody>
+        <tr bgcolor="#9370db">
+            <td>Status roweru</td>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        <c:forEach items="${statuses}" var="status">
+            <tr>
+                <td><c:out value="${status.name}"/></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

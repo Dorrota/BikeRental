@@ -23,6 +23,7 @@
             <th scope="col">Rozmiar</th>
             <th scope="col">Usuń</th>
             <th scope="col">Wypożyczenia</th>
+            <th scope="col">Zmień</th>
         </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@
                 <td><c:out value="${bike.size}"/></td>
                 <td><a href="<c:url value = "/bike/delete/${bike.id}" />">Usuń</a></td>
                 <td><a href="<c:url value = "/usage/bike/${bike.id}"/>">Zobacz wypożyczenia</a></td>
+                <td><a href="<c:url value = "/bike/edit/${bike.id}"/>">Zmień nazwę</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -44,7 +46,7 @@
     <br>
     <div class="hyperlink"><a href="<c:url value = "/bike/add"/>">Dodaj nowy rower</a>
     </div>
-    <div class="hyperlink"><a href="<c:url value = "/"/>">Powrót</a></div>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

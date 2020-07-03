@@ -12,26 +12,26 @@
 </head>
 <body>
 <div class="container">
-<h3>Nowe wypożyczenie, rezerwacja, naprawa</h3>
-<form:form method="post" modelAttribute="usage">
-    <div class="form-group">
-        model: <form:select path="bike" itemLabel="brand.model" itemValue="brand" items="${bikes}"/>
-    </div>
-    <div class="form-group">
-        typ: <form:select path="usageStatus" itemLabel="name" itemValue="id" items="${statuses}"/></div>
-    <div class="form-group">
-        użytkowik: <form:select path="lender" itemLabel="lastName" itemValue="id" items="${lenders}"/></div>
-    <div class="form-group">
-        data początkowa: <form:input type="datetime-local" path="startTime"/></div>
-    <div class="form-group">
-        data końcowa: <form:input type="datetime-local" path="endTime"/></div>
-    <br>
+    <h3>Nowe wypożyczenie, rezerwacja, naprawa</h3>
+    <form:form method="post" modelAttribute="usage">
+        <div class="form-group">
+            model: <form:select path="bike" itemLabel="brand.model" itemValue="brand" items="${bikes}"/>
+        </div>
+        <div class="form-group">
+            typ: <form:select path="usageStatus" itemLabel="name" itemValue="id" items="${statuses}"/></div>
+        <div class="form-group">
+            użytkowik: <form:select path="lender" itemLabel="lastName" itemValue="id" items="${lenders}"/></div>
+        <div class="form-group">
+            data początkowa: <form:input type="datetime-local" path="startTime"/></div>
+        <div class="form-group">
+            data końcowa: <form:input type="datetime-local" path="endTime"/></div>
+        <br>
 
-    <input class="btn btn-primary" type="submit" value="Zapisz">
+        <input class="btn btn-primary" type="submit" value="Zapisz">
 
-</form:form>
+    </form:form>
 
-<p><a href="<c:url value = "/usage/all"/>">Wróć do listy wypożyczeń</a></p>
+    <p><a href="<c:url value = "/usage/all"/>">Wróć do listy wypożyczeń</a></p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

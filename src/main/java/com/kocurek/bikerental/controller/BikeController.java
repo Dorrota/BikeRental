@@ -78,6 +78,14 @@ public class BikeController {
         return "bikeUpdate";
     }
 
+    @PostMapping("/edit/{id}")
+    public String updateBike(@ModelAttribute Bike bike){
+        String name = bike.getBikeName();
+        Long id = bike.getId();
+        bikeService.updateBike(name, id);
+        return "redirect:/bike/all";
+    }
+
     @ModelAttribute("types")
     List<Type> typeList(){
         return typeService.findAll();
