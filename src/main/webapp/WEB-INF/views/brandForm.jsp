@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -13,22 +12,21 @@
 </head>
 <body>
 <div class="container">
-<h3>Dodaj nową markę</h3>
-<form:form method="post" modelAttribute="brand">
-    <div class="form-group">
-    Marka:
-    <form:input path="name"/>
-        <form:errors path="name"/></div>
-    <div class="form-group">
-    Model:
-    <form:input path="model"/>
-        <form:errors path="model"/></div>
+    <h3>Dodaj nową markę</h3>
+    <form:form method="post" modelAttribute="brand">
+        <div class="form-group">
+            <label>Marka:</label>
+            <form:input path="name"/>
+            <form:errors path="name"/></div>
+        <div class="form-group">
+            <label>Model:</label>
+            <form:input path="model"/>
+            <form:errors path="model"/></div>
+        <input class="btn btn-primary" type="submit" value="Zapisz">
 
-    <input class="btn btn-primary" type="submit" value="Zapisz">
+    </form:form>
 
-</form:form>
-
-<p><a href = "<c:url value = "/brand/all"/>">Wróć do listy marek rowerów</a></p>
+    <div><a href="<c:url value = "/brand/all"/>">Wróć do listy marek rowerów</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

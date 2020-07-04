@@ -46,6 +46,7 @@
     <br>
     <div class="hyperlink"><a href="<c:url value = "/bike/add"/>">Dodaj nowy rower</a>
     </div>
+    <div><a href = "<c:url value = "/usage/bikes"/>">Rowery w użyciu</a></div>
     <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 

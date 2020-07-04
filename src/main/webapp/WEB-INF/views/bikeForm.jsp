@@ -12,31 +12,33 @@
 </head>
 <body>
 <div class="container">
-<h3>Dodaj nowy rower</h3>
-<form:form method="post" modelAttribute="bike">
-    <div class="form-group">
-        nazwa: <form:input path="bikeName"/>
-        <div class="alert"><form:errors path="bikeName"/></div>
-    </div>
-    <div class="form-group">
-        model: <form:select path="brand" itemLabel="model" itemValue="id" items="${brands}"/>
-        <div class="alert"><form:errors path="brand"/></div>
-    </div>
-    <div class="form-group">
-        typ: <form:select path="type" itemLabel="typeName" itemValue="id" items="${types}"/>
-    </div>
-    <div class="form-group">
-        rozmiar: <form:input path="size"/>
-    </div>
-    <div class="form-group">
-        kolor: <form:input path="color"/>
-    </div>
+    <h3>Dodaj nowy rower</h3>
+    <form:form method="post" modelAttribute="bike">
+        <div class="form-group">
+            <label>nazwa: </label><form:input class="form-control" path="bikeName"/>
+            <div class="alert"><form:errors path="bikeName"/></div>
+        </div>
+        <div class="form-group">
+            <label>model:</label> <form:select class="form-control" path="brand" itemLabel="model" itemValue="id"
+                                               items="${brands}"/>
+            <div class="text-alert"><form:errors path="brand"/></div>
+        </div>
+        <div class="form-group">
+            <label>typ: </label><form:select class="form-control" path="type" itemLabel="typeName" itemValue="id"
+                                             items="${types}"/>
+        </div>
+        <div class="form-group">
+            <label>rozmiar: </label><form:input class="form-control" path="size"/>
+        </div>
+        <div class="form-group">
+            <label>kolor: </label><form:input class="form-control" path="color"/>
+        </div>
 
-    <input class="btn btn-primary" type="submit" value="Zapisz">
+        <input class="btn btn-primary" type="submit" value="Zapisz">
 
-</form:form>
+    </form:form>
 
-<p><a href="<c:url value = "/bike/all"/>">Wróć do listy rowerów</a></p>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/bike/all"/>">Wróć do listy rowerów</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

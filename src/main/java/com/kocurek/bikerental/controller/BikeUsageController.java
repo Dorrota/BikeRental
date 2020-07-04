@@ -11,8 +11,10 @@ import com.kocurek.bikerental.service.UsageStatusService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -47,8 +49,11 @@ public class BikeUsageController {
     }
 
     @PostMapping("/add")
-    public String addBikeUsage(@ModelAttribute BikeUsage bikeUsage){
-        bikeUsageService.addUsage(bikeUsage);
+    public String addBikeUsage(@Valid BikeUsage usage, BindingResult result){
+        if (result.hasErrors()){
+            return "bikeUsageForm";
+        }
+        bikeUsageService.addUsage(usage);
         return "redirect:/usage/all";
     }
 

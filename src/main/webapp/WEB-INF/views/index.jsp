@@ -14,10 +14,12 @@
 <div class="container">
     <h3>Bike rental</h3>
     <h4><a href="<c:url value = "/bike/all"/>">Wszystkie rowery</a></h4>
-    <h4><a href="<c:url value = "/type/all"/>">Typy</a></h4>
     <h4><a href="<c:url value = "/brand/all"/>">Marki</a></h4>
+    <h4><a href="<c:url value = "/type/all"/>">Typy</a></h4>
     <h4><a href="<c:url value = "/usage/all"/>">Wypożyczenia i inne</a></h4>
     <h4><a href="<c:url value = "/lender/all"/>">Ludzie</a></h4>
+    <h4><a href="<c:url value = "/status/all"/>">Status użytkowania</a></h4>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

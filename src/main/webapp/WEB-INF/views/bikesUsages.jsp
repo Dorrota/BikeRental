@@ -37,6 +37,8 @@
         </c:forEach>
         </tbody>
     </table>
+    <div class="hyperlink"><a  href="<c:url value = "/bike/all"/>">Rowery</a></div>
+    <div class="hyperlink"><a href="<c:url value = "/usage/all"/>">Wypożyczenia</a></div>
     <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 

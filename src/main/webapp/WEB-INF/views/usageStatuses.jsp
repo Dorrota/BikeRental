@@ -12,10 +12,12 @@
 <div class="container">
     <h2>Typy</h2>
     <table class="table table-bordered">
-        <tbody>
+        <thead>
         <tr bgcolor="#9370db">
             <td>Status roweru</td>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach items="${statuses}" var="status">
             <tr>
                 <td><c:out value="${status.name}"/></td>
@@ -23,6 +25,7 @@
         </c:forEach>
         </tbody>
     </table>
+    <div class="hyperlink"><a href="<c:url value = "/status/add"/>">Dodaj nowy status</a></div>
     <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
 

@@ -15,7 +15,7 @@
     <h3>Nowe wypożyczenie, rezerwacja, naprawa</h3>
     <form:form method="post" modelAttribute="usage">
         <div class="form-group">
-            model: <form:select path="bike" itemLabel="brand.model" itemValue="brand" items="${bikes}"/>
+            model: <form:select path="bike" itemLabel="bikeName" itemValue="id" items="${bikes}"/>
         </div>
         <div class="form-group">
             typ: <form:select path="usageStatus" itemLabel="name" itemValue="id" items="${statuses}"/></div>

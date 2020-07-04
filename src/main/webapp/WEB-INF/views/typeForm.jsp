@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form"
            uri="http://www.springframework.org/tags/form" %>
@@ -12,16 +11,19 @@
 </head>
 <body>
 <div class="container">
-<h3>Dodaj nowy typ</h3>
-<form:form method="post" modelAttribute="type">
-    Typ:
-    <form:input path="typeName"/><br>
-    Full:
-    <form:radiobutton path="fullSuspension" value="True"/><br>
-
-    <input type="submit" name="Zapisz">
-
-</form:form>
+    <h3>Dodaj nowy typ</h3>
+    <form:form method="post" modelAttribute="type">
+        <div class="form-group">
+            <label>Typ:</label>
+            <form:input path="typeName"/></div>
+        <div class="form-group">
+            <label>Full: </label>
+            <form:radiobutton path="fullSuspension" value="True"/></div>
+        <input class="btn btn-primary" type="submit" value="Zapisz">
+    </form:form>
+    <button class="btn btn-primary" onclick="window.location.href='/type/all';">
+        Wróć
+    </button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

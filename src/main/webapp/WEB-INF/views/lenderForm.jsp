@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -13,25 +12,28 @@
 </head>
 <body>
 <div class="container">
-<h3>Zapisz się do wypożyczalni!</h3>
-<form:form method="post" modelAttribute="lender">
-    Imię:
-    <form:input path="firstName"/>
-    <form:errors path="firstName"/><br>
-    Nazwisko:
-    <form:input path="lastName"/>
-    <form:errors path="lastName"/><br>
-    Email:
-    <form:input path="email"/>
-    <form:errors path="email"/><br>
-    PESEL:
-    <form:input path="pesel"/>
-    <form:errors path="pesel"/><br>
+    <h3>Zapisz się do wypożyczalni!</h3>
+    <form:form method="post" modelAttribute="lender">
+        <div class="form-group">
+            <label>Imię:</label>
+            <form:input class="form-control" path="firstName"/>
+            <form:errors path="firstName"/></div>
+        <div class="form-group">
+            <label>Nazwisko:</label>
+            <form:input class="form-control" path="lastName"/>
+            <form:errors path="lastName"/></div>
+        <div class="form-group">
+            <label>Email:</label>
+            <form:input class="form-control" path="email"/>
+            <form:errors path="email"/></div>
+        <div class="form-group">
+            <label>PESEL:</label>
+            <form:input class="form-control" path="pesel"/>
+            <form:errors path="pesel"/></div>
 
-    <input type="submit" name="Zapisz">
-
-</form:form>
-<p><a href = "<c:url value = "/lender/all"/>">Wróć do listy użytkowników</a></p>
+        <input class="btn btn-primary" type="submit" value="Zapisz">
+    </form:form>
+    <div class="hyperlink"><a class="text-success" href="<c:url value = "/lender/all"/>">Wróć do listy użytkowników</a></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

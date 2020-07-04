@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,6 +23,7 @@ public class BikeUsage {
     private LocalDateTime endTime;
 
     @ManyToOne
+    @NotNull(message = "Wybierz rower")
     private Bike bike;
     @ManyToOne
     private Lender lender;
