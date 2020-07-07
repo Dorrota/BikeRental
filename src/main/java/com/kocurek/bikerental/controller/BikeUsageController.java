@@ -44,16 +44,16 @@ public class BikeUsageController {
 
     @GetMapping("/add")
     public String getForm(Model model){
-        model.addAttribute("usage", new BikeUsage());
+        model.addAttribute("bikeUsage", new BikeUsage());
         return "bikeUsageForm";
     }
 
     @PostMapping("/add")
-    public String addBikeUsage(@Valid BikeUsage usage, BindingResult result){
+    public String addBikeUsage(@Valid BikeUsage bikeUsage, BindingResult result){
         if (result.hasErrors()){
             return "bikeUsageForm";
         }
-        bikeUsageService.addUsage(usage);
+        bikeUsageService.addUsage(bikeUsage);
         return "redirect:/usage/all";
     }
 

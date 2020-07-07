@@ -13,18 +13,32 @@
 <body>
 <div class="container">
     <h3>Nowe wypożyczenie, rezerwacja, naprawa</h3>
-    <form:form method="post" modelAttribute="usage">
+    <form:form method="post" modelAttribute="bikeUsage">
         <div class="form-group">
-            model: <form:select path="bike" itemLabel="bikeName" itemValue="id" items="${bikes}"/>
+            <label>model: </label>
+            <form:select class="form-control" path="bike" itemLabel="bikeName" itemValue="id" items="${bikes}"/>
+            <form:errors path="bike"/>
         </div>
         <div class="form-group">
-            typ: <form:select path="usageStatus" itemLabel="name" itemValue="id" items="${statuses}"/></div>
+            <label>typ: </label>
+            <form:select class="form-control" path="usageStatus" itemLabel="name" itemValue="id" items="${statuses}"/>
+            <form:errors path="usageStatus"/>
+        </div>
         <div class="form-group">
-            użytkowik: <form:select path="lender" itemLabel="lastName" itemValue="id" items="${lenders}"/></div>
+            <label>użytkowik: </label>
+            <form:select class="form-control" path="lender" itemLabel="lastName" itemValue="id" items="${lenders}"/>
+            <form:errors path="lender"/>
+        </div>
         <div class="form-group">
-            data początkowa: <form:input type="datetime-local" path="startTime"/></div>
+            <label>data początkowa: </label>
+            <form:input class="form-control" type="datetime-local" path="startTime"/>
+            <form:errors path="startTime"/>
+        </div>
         <div class="form-group">
-            data końcowa: <form:input type="datetime-local" path="endTime"/></div>
+            <label>data końcowa: </label>
+            <form:input class="form-control" type="datetime-local" path="endTime"/>
+            <form:errors path="endTime"/>
+        </div>
         <br>
 
         <input class="btn btn-primary" type="submit" value="Zapisz">
@@ -33,6 +47,8 @@
 
     <p><a href="<c:url value = "/usage/all"/>">Wróć do listy wypożyczeń</a></p>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

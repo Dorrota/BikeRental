@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Title</title>
+    <title>Rowery</title>
 </head>
 <body>
 <div class="container">
@@ -36,19 +37,43 @@
                 <td><c:out value="${bike.type.fullSuspension}"/></td>
                 <td><c:out value="${bike.color}"/></td>
                 <td><c:out value="${bike.size}"/></td>
-                <td><a href="<c:url value = "/bike/delete/${bike.id}" />">Usuń</a></td>
+                <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal_${bike.id}">Usuń</button></td>
                 <td><a href="<c:url value = "/usage/bike/${bike.id}"/>">Zobacz wypożyczenia</a></td>
                 <td><a href="<c:url value = "/bike/edit/${bike.id}"/>">Zmień nazwę</a></td>
             </tr>
+            <div id="myModal_${bike.id}" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Czy na pewno usunąć ten rower?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+
+                            <c:out value="${bike.brand.model}"/>
+                            <div class="hyperlink"><a href="<c:url value = "/bike/all"/>">Nie</a>
+                                <a href="<c:url value = "/bike/delete/${bike.id}"/>">Tak</a></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </c:forEach>
         </tbody>
     </table>
     <br>
-    <div class="hyperlink"><a href="<c:url value = "/bike/add"/>">Dodaj nowy rower</a>
+    <div class="hyperlink"><a href="<c:url value="/bike/add"/>">Dodaj nowy rower</a>
     </div>
-    <div><a href = "<c:url value = "/usage/bikes"/>">Rowery w użyciu</a></div>
+    <div><a href="<c:url value = "/usage/bikes"/>">Rowery w użyciu</a></div>
     <div class="hyperlink"><a class="text-success" href="<c:url value = "/"/>">Powrót</a></div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

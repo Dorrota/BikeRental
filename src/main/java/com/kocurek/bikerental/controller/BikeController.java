@@ -61,12 +61,6 @@ public class BikeController {
 
     @GetMapping("/delete/{id}")
     public String deleteBike(@PathVariable Long id, Model model){
-        Bike bike = bikeService.findById(id);
-        model.addAttribute("bike", bike);
-        return "bikeDelete";
-    }
-    @GetMapping("/delete/yes/{id}")
-    public String deleteBike(@PathVariable Long id){
         bikeService.deleteById(id);
         return "redirect:/bike/all";
     }
