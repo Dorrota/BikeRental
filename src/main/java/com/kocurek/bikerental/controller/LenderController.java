@@ -26,19 +26,19 @@ public class LenderController {
     public String lenderList(Model model){
         List<Lender> lenders = lenderService.findAll();
         model.addAttribute("lenders", lenders);
-        return "lenders";
+        return "lender/lenders";
     }
 
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("lender", new Lender());
-        return "lenderForm";
+        return "lender/lenderForm";
     }
 
     @PostMapping("/add")
     public String addLender(@Valid Lender lender, BindingResult result){
         if (result.hasErrors()){
-            return "lenderForm";
+            return "lender/lenderForm";
         }
         lenderService.addLender(lender);
         return "redirect:/lender/all";

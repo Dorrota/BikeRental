@@ -14,12 +14,21 @@
 <div class="container">
 
     <form:form method="post" modelAttribute="bike">
-        <div>Rower <c:out value="${bike.bikeName}"/></div>
-        <div><c:out value="${bike.brand.name}"/></div>
-        <div><c:out value="${bike.brand.model}"/></div>
+        <div class="form-group">
+            <label>Rower: </label>
+            <div><c:out value="${bike.bikeName}"/></div>
+        </div>
+        <div class="form-group">
+            <label>Marka: </label>
+            <div><c:out value="${bike.brand.name}"/></div>
+        </div>
+        <div class="form-group">
+            <label>Model: </label>
+            <div><c:out value="${bike.brand.model}"/></div>
+        </div>
         <div>Zmień nazwę na:</div>
         <div class="form-group">
-        <form:input path="bikeName"/>
+        <form:input path="bikeName" class="form-control" placeholder="${bike.bikeName}"/>
         <form:errors path="bikeName"/>
         </div>
         <input class="btn btn-primary" type="submit" name="Zmień">

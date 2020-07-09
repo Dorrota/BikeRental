@@ -5,6 +5,7 @@ import com.kocurek.bikerental.repository.LenderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LenderServiceImpl implements LenderService{
@@ -23,5 +24,14 @@ public class LenderServiceImpl implements LenderService{
     @Override
     public Lender addLender(Lender lender) {
         return lenderRepository.save(lender);
+    }
+
+    @Override
+    public Lender findLenderById(Long id){
+        Optional<Lender> optionalLender = lenderRepository.findById(id);
+        if (!optionalLender.isPresent()){
+            throw new RuntimeException("Nie ma takiego człowieka!");
+        }
+        return optionalLender.get();
     }
 }

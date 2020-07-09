@@ -39,19 +39,19 @@ public class BikeUsageController {
     public String usageList(Model model){
         List<BikeUsage> usages = bikeUsageService.findAll();
         model.addAttribute("usages", usages);
-        return "bikeUsages";
+        return "bikeUsage/bikeUsages";
     }
 
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("bikeUsage", new BikeUsage());
-        return "bikeUsageForm";
+        return "bikeUsage/bikeUsageForm";
     }
 
     @PostMapping("/add")
     public String addBikeUsage(@Valid BikeUsage bikeUsage, BindingResult result){
         if (result.hasErrors()){
-            return "bikeUsageForm";
+            return "bikeUsage/bikeUsageForm";
         }
         bikeUsageService.addUsage(bikeUsage);
         return "redirect:/usage/all";
@@ -62,14 +62,14 @@ public class BikeUsageController {
         LocalDateTime now = LocalDateTime.now();
         List<BikeUsage> list=bikeUsageService.findAllByBikeAndTime(id, now, now);
         model.addAttribute("usages", list);
-        return "usages";
+        return "bikeUsage/usages";
     }
     @GetMapping("/bikes")
     public String allBikesInUse(Model model){
         List<BikeUsage> list = bikeUsageService.findAllCurrentUsages();
         //log.info();
         model.addAttribute("usages", list);
-        return "bikesUsages";
+        return "bikeUsage/bikesUsages";
     }
 
     @ModelAttribute("lenders")

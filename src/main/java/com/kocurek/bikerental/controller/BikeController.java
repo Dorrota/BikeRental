@@ -3,8 +3,6 @@ package com.kocurek.bikerental.controller;
 import com.kocurek.bikerental.domain.Bike;
 import com.kocurek.bikerental.domain.Brand;
 import com.kocurek.bikerental.domain.Type;
-import com.kocurek.bikerental.repository.BrandRepository;
-import com.kocurek.bikerental.repository.TypeRepository;
 import com.kocurek.bikerental.service.BikeService;
 import com.kocurek.bikerental.service.BrandService;
 import com.kocurek.bikerental.service.TypeService;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/bike")
@@ -32,10 +29,11 @@ public class BikeController {
     }
 
     @GetMapping("/all")
-    public String bikeList(Model model){
+    public String bikeList(Model model) {
         List<Bike> bikes = bikeService.findAll();
         model.addAttribute("bikes", bikes);
-        return "bikes";
+        //throw new Exception("ncwjkwq");
+        return "bike/bikes";
     }
 
 //    @GetMapping("/brand")
@@ -47,13 +45,13 @@ public class BikeController {
     @GetMapping("/add")
     public String getForm(Model model){
         model.addAttribute("bike", new Bike());
-        return "bikeForm";
+        return "bike/bikeForm";
     }
 
     @PostMapping("/add")
     public String addBike(@Valid Bike bike, BindingResult result){
         if (result.hasErrors()){
-            return "bikeForm";
+            return "bike/bikeForm";
         }
         bikeService.addBike(bike);
         return "redirect:/bike/all";
@@ -69,7 +67,7 @@ public class BikeController {
     public String updateBikeWithName(@PathVariable Long id, Model model){
         Bike bike = bikeService.findById(id);
         model.addAttribute("bike", bike);
-        return "bikeUpdate";
+        return "bike/bikeUpdate";
     }
 
     @PostMapping("/edit/{id}")

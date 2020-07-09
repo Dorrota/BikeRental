@@ -8,4 +8,5 @@ public interface LenderService {
 
     List<Lender> findAll();
     Lender addLender(Lender lender);
+    Lender findLenderById(Long id);
 }
