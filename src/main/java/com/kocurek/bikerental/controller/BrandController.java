@@ -56,7 +56,7 @@ public class BrandController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        modelAndView.setViewName("except/404error");
+        modelAndView.setViewName("error/404error");
         modelAndView.addObject("exception", exception);
 
         return modelAndView;

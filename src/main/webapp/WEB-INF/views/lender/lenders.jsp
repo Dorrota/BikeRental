@@ -19,6 +19,7 @@
             <td>Nazwisko</td>
             <td>email</td>
             <td>PESEL</td>
+            <td>Usuń</td>
 
 
         </tr>
@@ -28,6 +29,29 @@
                 <td><c:out value="${lender.lastName}"/></td>
                 <td><c:out value="${lender.email}"/></td>
                 <td><c:out value="${lender.pesel}"/></td>
+                <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal_${lender.id}">Usuń</button></td>
+
+                <div id="myModal_${lender.id}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Czy na pewno usunąć tego użytkownika?</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <c:out value="${lender.lastName}"/>
+                                <div class="hyperlink"><a href="<c:url value = "/lender/all"/>">Nie     </a>
+                                    <a href="<c:url value = "/lender/delete/${lender.id}"/>">Tak</a></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </tr>
         </c:forEach>

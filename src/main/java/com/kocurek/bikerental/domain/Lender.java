@@ -4,13 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.PESEL;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -28,4 +27,6 @@ public class Lender {
     private String pesel;
     @Email(message = "Adres email nieprawidłowy.")
     private String email;
+    @OneToMany(mappedBy = "lender", cascade = CascadeType.MERGE)
+    private Set<BikeUsage> bikeUsages = new HashSet<>();
 }

@@ -2,6 +2,7 @@ package com.kocurek.bikerental.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-@ControllerAdvice(basePackages = "com/kocurek/bikerental")
-@RequestMapping("/")
+@ControllerAdvice(basePackages = "com.kocurek.bikerental")
 @Slf4j
 public class ExceptionHandlerController {
 
@@ -22,18 +22,20 @@ public class ExceptionHandlerController {
         return DEFAULT_ERROR_VIEW;
     }*/
 
-   // @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(Exception.class)
     public ModelAndView notFoundException(Exception exception){
 
-        ModelAndView modelAndView = new ModelAndView("/error/404error");
+        ModelAndView modelAndView = new ModelAndView("/error");
 
         log.error("My not found exception.");
         log.error(exception.getMessage());
-        // modelAndView.setViewName("/error/404error");
+        // modelAndView.setViewName("404error");
         modelAndView.addObject("exception", exception);
         return modelAndView;
     }
+
+
 
     //@ResponseStatus(HttpStatus.BAD_REQUEST)
 /*    @ExceptionHandler(Exception.class)

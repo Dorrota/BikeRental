@@ -58,7 +58,7 @@ public class BikeController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteBike(@PathVariable Long id, Model model){
+    public String deleteBike(@PathVariable Long id){
         bikeService.deleteById(id);
         return "redirect:/bike/all";
     }

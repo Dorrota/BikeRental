@@ -34,4 +34,10 @@ public class LenderServiceImpl implements LenderService{
         }
         return optionalLender.get();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        lenderRepository.deleteById(id);
+    }
+
 }
